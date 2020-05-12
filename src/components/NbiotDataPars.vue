@@ -16,6 +16,11 @@
     </el-main>
     <el-aside >
       <el-row>
+        <el-col>
+          <div style="height: 50px"></div>
+        </el-col>
+      </el-row>
+      <el-row>
         <el-col :span="6">
           <el-button @click="pars">解析</el-button>
         </el-col>
@@ -67,7 +72,11 @@
               result += this.common.base64toHEX(dataJson['meterAddr']);
               result += _.padStart(dataJson['command'].toString('16'),'2',this.padStartStr);
               result += _.padStart(dataJson['dataAreaLen'].toString('16'),4,this.padStartStr);
-              console.log(result)
+              result += this.common.base64toHEX(dataJson['dataArea']);
+              result += _.padStart(dataJson['crc'],2,this.padStartStr);
+              result += _.padStart(dataJson['flagEnd'],2,this.padStartStr);
+              console.log(result);
+              this.parsNbiotDevice(result);
             }
           }
         },
@@ -81,7 +90,15 @@
           }
           return true;
         },
+        parsNbiotDevice:function(data){
+          //解析普通NB表
+          let da = data.substring(0,data.length-4);
+          let crc = this.common.checkSum(da);
+          if(crc == data.substring(data.length-4,data.length-2)){
 
+          }
+
+        },
 
         telecomPars: function (data) {
 

@@ -170,16 +170,12 @@
         if(data.length % 2 != 0){
           this.$message.error("请输入正确的数据");
         }
-        let sum = 0;
-        for (let i = 0; i < data.length/2; i++) {
-          let s = data.substring(i*2,(i+1)*2);
-          sum += parseInt(s,16);
-        }
-        let sumStr = sum.toString(16);
-        if(sumStr.length >= 2){
-          this.analyOverData = sumStr.substring(sumStr.length-2,sumStr.length);
-        }else {
-          this.analyOverData = sumStr.length == 1 ? '0'+sumStr : '00';
+        let sumStr = '';
+        try {
+          this.analyOverData = this.common.checkSum(data);
+        }catch (e) {
+          console.log(e)
+          this.$message.error('请输入正确的数据')
         }
       },
       crcVaild: function () {

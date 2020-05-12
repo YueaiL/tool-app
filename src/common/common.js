@@ -25,8 +25,21 @@ export default {
     }
     return btoa(result);
   },
-  crc16(data) {
-
+  checkSum(data) {
+    let sum = 0;
+    for (let i = 0; i < data.length/2; i++) {
+      let s = data.substring(i*2,(i+1)*2);
+      sum += parseInt(s,16);
+    }
+    let sumStr = sum.toString(16);
+    if(sumStr.length >= 2){
+      sumStr = sumStr.substring(sumStr.length-2,sumStr.length);
+    }else {
+      sumStr = sumStr.length == 1 ? '0'+sumStr : '00';
+    }
+    return sumStr;
   },
+
+
 }
 
