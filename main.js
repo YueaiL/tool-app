@@ -15,7 +15,7 @@ let mainWindow;
 function createWindow() {
   // 创建一个窗口，大小 800 * 600
   mainWindow = new BrowserWindow({
-    width: 800,
+    width: 1000,
     height: 600
   });
 
