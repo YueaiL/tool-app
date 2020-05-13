@@ -3,14 +3,14 @@
 
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" :router="true">
       <el-menu-item index="1" route="/">首页<!--<router-link to="/" ></router-link>--></el-menu-item>
-      <el-menu-item index="2" route="/scon" >串口控制</el-menu-item>
+      <el-menu-item index="4" route="/nbiot">数据解析</el-menu-item>
+      <!--<el-menu-item index="2" route="/scon" >串口控制</el-menu-item>
       <el-submenu index="3">
         <template slot="title">NB-IOT</template>
         <el-menu-item index="2-1" route="/nbiot">数据解析</el-menu-item>
         <el-menu-item index="2-3">选项3</el-menu-item>
       </el-submenu>
-      <router-link to="/nbiot" tag="el-menu-item" index="4">数据解析</router-link>
-
+-->
       <!--<el-submenu index="12">
         <template slot="title">我的工作台</template>
         <el-menu-item index="2-1"><router-link to="/hello" >HELLO</router-link></el-menu-item>
