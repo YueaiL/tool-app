@@ -29,7 +29,7 @@ export default class Nbiot {
     //判断是否是电信
     if (this.indexOfAll(this.data, this.types['telecom'])) {
       let json = JSON.parse(this.data);
-      let t = json['meterType'];
+      let t = parseInt(json['meterType'],16);
       if (t == '1') {
         //普通NB表
         /*	{"flagStart":104,"meterType":1,"meterAddr":"hkFiBFcXU4A=","command":129,"dataAreaLen":156,"dataArea":"AAAAAAEAADIAMDYZiYYRGSZwATZzhAAAAB4gBRIYMgEFoAgAAAAAo1W5/wi68RndAAAAAAAAAAAAAAAAAAAAHgAAAB4AAAAeAAAAHgAAAB4AAAAeAAAAHgAAAB4AAAAeAAAAHgAAAB4AAAAeAAAAHgAAAB4AAAAeAAAAHgAAAB4AAAAeAAAAHgAAAB4AAAAeAAAAHgAAAB4AAAAe","crc":25,"flagEnd":22}*/
