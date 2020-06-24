@@ -35,5 +35,7 @@ export default new Router({
       name: 'dataPars',
       component: NbiotDataPars
     }
-  ]
+  ],
+  mode: 'history',
+  base: '/nb/'
 })
